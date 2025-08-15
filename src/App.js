@@ -1,8 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { User, FileText, Camera, List, ChevronRight, ArrowLeft, CheckCircle, Upload, Globe, AlertCircle, Phone, Calendar, Home, Eye, EyeOff } from 'lucide-react';
 import { signUp, signIn, confirmSignUp, signInWithRedirect } from 'aws-amplify/auth';
-import './aws-config'; // Add the config file
+import { Amplify } from 'aws-amplify';
+import amplifyconfig from './amplifyconfiguration.json';
 
+Amplify.configure(amplifyconfig);
+
+
+// Add this debug block right after imports
+console.log('=== AMPLIFY DEBUG ===');
+console.log('Current origin:', window.location.origin);
+console.log('Environment variables:');
+console.log('  REACT_APP_AWS_REGION:', process.env.REACT_APP_AWS_REGION);
+console.log('  REACT_APP_USER_POOL_ID:', process.env.REACT_APP_USER_POOL_ID);
+console.log('  REACT_APP_USER_POOL_WEB_CLIENT_ID:', process.env.REACT_APP_USER_POOL_WEB_CLIENT_ID);
+console.log('  REACT_APP_OAUTH_DOMAIN:', process.env.REACT_APP_OAUTH_DOMAIN);
+
+// Import Amplify to check config
+import { Amplify } from 'aws-amplify';
+console.log('Amplify config:', JSON.stringify(Amplify.getConfig(), null, 2));
 // App states for authentication and KYC flow
 const APP_STATES = {
     UNAUTHENTICATED: 'unauthenticated',

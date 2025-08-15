@@ -1,0 +1,25 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nexus-staging-65f7f-authRole",
+      "UnauthRoleArn": "arn:aws:iam::836515410435:role/amplify-nexus-staging-65f7f-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::836515410435:role/amplify-nexus-staging-65f7f-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-nexus-staging-65f7f-deployment",
+      "UnauthRoleName": "amplify-nexus-staging-65f7f-unauthRole",
+      "StackName": "amplify-nexus-staging-65f7f",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:836515410435:stack/amplify-nexus-staging-65f7f/b5d53890-7936-11f0-b2cb-064dd75eb60f",
+      "AmplifyAppId": "d29pcuju0b7j8w"
+    },
+    "categories": {
+      "auth": {
+        "nexus": {
+          "nativeClientId": "6t61naa9tt2t69ve71a7niog2t",
+          "userPoolId": "ap-southeast-1_vnzc7I7Sb",
+          "userPoolName": "Real Estate KYC Frontend",
+          "webClientId": "6t61naa9tt2t69ve71a7niog2t"
+        }
+      }
+    }
+  }
+}

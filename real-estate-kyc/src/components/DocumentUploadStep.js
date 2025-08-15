@@ -18,7 +18,7 @@ export const DocumentUploadStep = ({
 }) => {
   const fileInputRef = useRef(null);
 
-  const handleFileSelect = (event: React.ChangeEvent) => {
+  const handleFileSelect = (event) => {
     const file = event.target.files?.[0];
     if (file) {
       if (file.size > 10 * 1024 * 1024) {
