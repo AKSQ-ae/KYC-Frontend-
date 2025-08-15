@@ -2,23 +2,28 @@ import React, { useState, useEffect, useRef } from 'react';
 import { User, FileText, Camera, List, ChevronRight, ArrowLeft, CheckCircle, Upload, Globe, AlertCircle, Phone, Calendar, Home, Eye, EyeOff } from 'lucide-react';
 import { signUp, signIn, confirmSignUp, signInWithRedirect } from 'aws-amplify/auth';
 import { Amplify } from 'aws-amplify';
-import amplifyconfig from './amplifyconfiguration.json';
 
-Amplify.configure(amplifyconfig);
-
-
-// Add this debug block right after imports
-console.log('=== AMPLIFY DEBUG ===');
-console.log('Current origin:', window.location.origin);
-console.log('Environment variables:');
-console.log('  REACT_APP_AWS_REGION:', process.env.REACT_APP_AWS_REGION);
-console.log('  REACT_APP_USER_POOL_ID:', process.env.REACT_APP_USER_POOL_ID);
-console.log('  REACT_APP_USER_POOL_WEB_CLIENT_ID:', process.env.REACT_APP_USER_POOL_WEB_CLIENT_ID);
-console.log('  REACT_APP_OAUTH_DOMAIN:', process.env.REACT_APP_OAUTH_DOMAIN);
-
-// Import Amplify to check config
-import { Amplify } from 'aws-amplify';
-console.log('Amplify config:', JSON.stringify(Amplify.getConfig(), null, 2));
+// Add this at the top of App.js, before the component
+Amplify.configure({
+  Auth: {
+    Cognito: {
+      region: 'ap-southeast-1',
+      userPoolId: 'ap-southeast-1_vnzc7I7Sb',
+      userPoolClientId: '6t61naa9tt2t69ve71a7niog2t',
+      loginWith: {
+        oauth: {
+          domain: "https://ap-southeast-1vnzc7i7sb.auth.ap-southeast-1.amazoncognito.com",
+          scopes: ['openid', 'email', 'profile'],
+          redirectSignIn: [window.location.origin],
+          redirectSignOut: [window.location.origin],
+          responseType: 'code',
+        },
+        username: true,
+        email: true,
+      }
+    }
+  }
+});
 // App states for authentication and KYC flow
 const APP_STATES = {
     UNAUTHENTICATED: 'unauthenticated',

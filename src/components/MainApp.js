@@ -1,8 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { User, FileText, Camera, List, ChevronRight, ArrowLeft, CheckCircle, Upload, Globe, AlertCircle, Phone, Calendar, Home, Eye, EyeOff } from 'lucide-react';
 import { signUp, signIn, confirmSignUp, signInWithRedirect } from 'aws-amplify/auth';
-import './aws-config'; // Add the config file
+import { Amplify } from 'aws-amplify';
 
+// Add this at the top of App.js, before the component
+Amplify.configure({
+  Auth: {
+    Cognito: {
+      region: 'ap-southeast-1',
+      userPoolId: 'ap-southeast-1_vnzc7I7Sb',
+      userPoolClientId: '6t61naa9tt2t69ve71a7niog2t',
+      loginWith: {
+        oauth: {
+          domain: "https://ap-southeast-1vnzc7i7sb.auth.ap-southeast-1.amazoncognito.com",
+          scopes: ['openid', 'email', 'profile'],
+          redirectSignIn: [window.location.origin],
+          redirectSignOut: [window.location.origin],
+          responseType: 'code',
+        },
+        username: true,
+        email: true,
+      }
+    }
+  }
+});
 // App states for authentication and KYC flow
 const APP_STATES = {
     UNAUTHENTICATED: 'unauthenticated',
