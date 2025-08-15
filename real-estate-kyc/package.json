@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@aws-amplify/ui-react": "^6.11.2",
-    "@craco/craco": "^7.1.0",
+    "@craco/craco": "^5.9.0",
     "@heroicons/react": "^2.2.0",
     "@modelcontextprotocol/server-filesystem": "^2025.7.29",
     "@tailwindcss/postcss": "^4.1.12",
@@ -20,7 +20,7 @@
     "react-dom": "^19.1.1",
     "react-hot-toast": "^2.5.2",
     "react-oidc-context": "^3.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^0.0.0",
     "tailwindcss": "^4.1.12",
     "web-vitals": "^2.1.4"
   },
